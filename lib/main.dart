@@ -6,6 +6,7 @@ import 'package:dashtronaut/services/storage/storage_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
   runZonedGuarded<Future<void>>(() async {
     final StorageService storageService = getIt<StorageService>();

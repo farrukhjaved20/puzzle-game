@@ -67,10 +67,10 @@ class PuzzleLayout implements LayoutDelegate {
         left: !kIsWeb && Platform.isAndroid
             ? Spacing.md
             : MediaQuery.of(context).padding.left,
-        child: Column(
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            DrawerButton(),
+          children: [
+            // DrawerButton(),
             SizedBox(height: 20),
             PuzzleHeader(),
             ResetPuzzleButton(),
@@ -82,16 +82,16 @@ class PuzzleLayout implements LayoutDelegate {
 
   List<Widget> get verticalPuzzleUIElements {
     return [
-      Positioned(
-        top: kIsWeb
-            ? Spacing.md
-            : !kIsWeb &&
-                    (Platform.isAndroid || Platform.isMacOS || Platform.isLinux)
-                ? MediaQuery.of(context).padding.top + Spacing.md
-                : MediaQuery.of(context).padding.top,
-        left: Spacing.screenHPadding,
-        child: const DrawerButton(),
-      ),
+      // Positioned(
+      //   top: kIsWeb
+      //       ? Spacing.md
+      //       : !kIsWeb &&
+      //               (Platform.isAndroid || Platform.isMacOS || Platform.isLinux)
+      //           ? MediaQuery.of(context).padding.top + Spacing.md
+      //           : MediaQuery.of(context).padding.top,
+      //   left: Spacing.screenHPadding,
+      //   child: const DrawerButton(),
+      // ),
       Positioned(
         bottom: distanceOutsidePuzzle,
         width: containerWidth,
