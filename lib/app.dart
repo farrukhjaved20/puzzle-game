@@ -19,9 +19,9 @@ class App extends StatefulWidget {
   final StorageService storageService;
 
   const App({
-    Key? key,
+    super.key,
     required this.storageService,
-  }) : super(key: key);
+  });
 
   @override
   State<App> createState() => _AppState();
@@ -54,7 +54,8 @@ class _AppState extends State<App> {
 
       for (int size in Puzzle.supportedPuzzleSizes) {
         precacheImage(
-          Image.asset('assets/images/puzzle-solved/solved-${size}x$size.png').image,
+          Image.asset('assets/images/puzzle-solved/solved-${size}x$size.png')
+              .image,
           context,
         );
       }
@@ -78,35 +79,38 @@ class _AppState extends State<App> {
           create: (_) => PhrasesProvider(),
         ),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Dashtronaut - Slide Puzzle Game',
-        darkTheme: ThemeData(
-          fontFamily: AppTextStyles.secondaryFontFamily,
-          brightness: Brightness.dark,
-          appBarTheme: const AppBarTheme(
-            systemOverlayStyle: SystemUiOverlayStyle(
-              statusBarBrightness: Brightness.light,
-              statusBarIconBrightness: Brightness.light,
-              systemNavigationBarIconBrightness: Brightness.light,
-              systemNavigationBarColor: Colors.black,
-            ),
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-                side: const BorderSide(color: Colors.white, width: 2),
+      child: SafeArea(
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Dashtronaut - Slide Puzzle Game',
+          darkTheme: ThemeData(
+            fontFamily: AppTextStyles.secondaryFontFamily,
+            brightness: Brightness.dark,
+            appBarTheme: const AppBarTheme(
+              systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarBrightness: Brightness.light,
+                statusBarIconBrightness: Brightness.light,
+                systemNavigationBarIconBrightness: Brightness.light,
+                systemNavigationBarColor: Colors.black,
               ),
-              fixedSize: const Size.fromHeight(50),
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-              backgroundColor: Colors.white.withOpacity(0.2),
+            ),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  side: const BorderSide(color: Colors.white, width: 2),
+                ),
+                fixedSize: const Size.fromHeight(50),
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                backgroundColor: Colors.white.withOpacity(0.2),
+              ),
             ),
           ),
+          themeMode: ThemeMode.dark,
+          home: const HomePage(),
         ),
-        themeMode: ThemeMode.dark,
-        home: const HomePage(),
       ),
     );
   }

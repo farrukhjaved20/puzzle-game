@@ -28,11 +28,13 @@ dependencies:
   desktop_window: ^0.4.0
   cross_file: ^0.3.3+2
 
+  flutter_native_splash: any
+  url_launcher_web: any
+  webview_flutter_web: ^0.2.2+4
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
-  flutter_native_splash: ^2.2.1
   mocktail: ^1.0.3
   path_provider_platform_interface: ^2.0.4
   plugin_platform_interface: ^2.1.2
